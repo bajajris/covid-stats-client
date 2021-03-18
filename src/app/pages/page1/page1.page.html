@@ -3,10 +3,43 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Page One</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-button (click)="displaySchoolCovidSummary()" expand="block" color="primary"><span class="btnText">Summary of cases in schools</span>
+  </ion-button>
+  <ion-card *ngFor="let summary of covidSummary">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let row of summary|keyvalue">
+          {{row.key}}: {{row.value}}<br />
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-button (click)="displaySchoolCovidTesting()" expand="block" color="secondary"><span class="btnText">Schools targeted testing summary</span>
+  </ion-button>
+  <ion-card *ngFor="let testing of covidTesting">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let row of testing|keyvalue">
+          {{row.key}}: {{row.value}}<br />
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-button (click)="displaySchoolPartnersActiveCovid()" expand="block" color="tertiary"><span class="btnText">Cases in school board
+      partners</span>
+  </ion-button>
+  <ion-card *ngFor="let active of covidPartnersActive">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let row of active|keyvalue">
+          {{row.key}}: {{row.value}}<br />
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
