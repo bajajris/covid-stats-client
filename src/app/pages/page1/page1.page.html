@@ -13,7 +13,7 @@
   <ion-card *ngFor="let summary of covidSummary">
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let row of summary|keyvalue">
+        <ion-item color="gold" *ngFor="let row of summary|keyvalue">
           {{row.key}}: {{row.value}}<br />
         </ion-item>
       </ion-list>
@@ -24,7 +24,7 @@
   <ion-card *ngFor="let testing of covidTesting">
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let row of testing|keyvalue">
+        <ion-item  color="gold" *ngFor="let row of testing|keyvalue">
           {{row.key}}: {{row.value}}<br />
         </ion-item>
       </ion-list>
@@ -36,7 +36,7 @@
   <ion-card *ngFor="let active of covidPartnersActive">
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let row of active|keyvalue">
+        <ion-item color="gold" *ngFor="let row of active|keyvalue">
           {{row.key}}: {{row.value}}<br />
         </ion-item>
       </ion-list>

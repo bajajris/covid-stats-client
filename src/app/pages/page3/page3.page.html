@@ -3,10 +3,18 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Page Three</ion-title>
+    <ion-title>Ongoing Outbreaks</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card color="tertiary" *ngFor="let data of outbreaks">
+    <ion-card-content  color="tertiary" >
+      <ion-list color="tertiary">
+        <ion-item color="tertiary" *ngFor="let row of data|keyvalue">
+          <span>{{row.key}}: {{row.value}}</span><br />
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

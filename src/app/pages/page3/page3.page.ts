@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NodeserviceService } from 'src/app/nodeservice.service';
 
 @Component({
   selector: 'app-page3',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page3Page implements OnInit {
 
-  constructor() { }
+  outbreaks: any = []
+  constructor(private nodeService: NodeserviceService) { }
 
   ngOnInit() {
+    this.nodeService.retrieveOngoingOutbreaks().subscribe(data => {
+      this.outbreaks = data;
+      console.log(data);
+    }, (err: HttpErrorResponse) => {
+      console.log(err.message)
+    })
+    console.log(this.outbreaks)
   }
-
 }
+
